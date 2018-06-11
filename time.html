@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+var a = {
+    get:() => {
+        console.log(this)
+    }
+}
+var b = {
+    get:() =>{
+      console.log(this)
+    }
+}
+
+a.get()
+b.get()
+
+
+
+</script>
+
+<script>
+    var Time = {
+        //获取当前时间
+        getUnix: () => {
+            var data = new Date();
+            return data.getTime();
+        },
+        // 获取到今天0点0分0秒的时间
+        getTodayUnix: () => {
+            var data = new Date();
+            data.setHours(0);
+            data.setMinutes(0);
+            data.setSeconds(0);
+            data.setMilliseconds(0);
+            // console.log(data.getTime());
+            return data.getTime();
+        },
+        // 获取今年1月1号0点0分0秒的时间
+        getYearUnix: () => {
+            var data = new Date();
+            data.setMonth(0);
+            data.setDate(1);
+            data.setHours(0);
+            data.setMinutes(0);
+            data.setSeconds(0);
+            data.setMilliseconds(0);
+            // console.log(data.getTime())
+            return data.getTime()
+        },
+        // 获取标准年月日
+        getLastDate: (time) => {
+            var data = new Date(time);
+            var month = data.getMonth() + 1 < 10 ? '0' + (data.getMonth() + 1) : data.getMonth() + 1;
+            var day = data.getDate() < 10 ? '0' + data.getDate() : data.getDate();
+            // console.log(`${data.getFullYear()}-${month}-${day}`);
+            return data.getFullYear() + '-' + month + '-' + day;
+        },
+        getFormatTime: (time1) => {
+            //获取当前时间
+            var now = this.Time.getUnix();
+            //获取到今天0点0分0秒的时间
+            var today = this.Time.getTodayUnix()
+            // 获取今年0点的时间
+            var year = this.Time.getYearUnix();
+            var timer = (now - time1) / 1000;
+            var tip = '';
+            if (timer <= 0) {
+                tip = '刚刚'
+            } else if (Math.floor(timer / 60 <= 0)) {
+                tip = '刚刚'
+            } else if (timer < 3600) {
+                tip = `${Math.floor(timer/60)}分钟前`
+            } else if (timer > 3600 && (timer - today) >= 0) {
+                tip = `${Math.floor(timer/3600)}小时前`
+            } else if (timer / 86400 <= 31) {
+                tip = `${Math.ceil(timer/86400)}天前`
+            } else {
+                tip = this.Time.getLastDate(time1)
+            }
+            console.log(tip);
+            return tip;
+
+
+        }
+    }
+
+
+//  console.log(Time.getUnix())
+//  Time.getFormatTime(1528708406254)
+//  Time.getFormatTime(Time.getUnix())
+</script>
