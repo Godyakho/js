@@ -1,14 +1,14 @@
 var a = {
-    get:function() { 
-        () => {
+    get:() => {
             console.log(this) 
         }
-  }
 }
 var b = {
-    get:()=>{
+    get:function(){
+        (()=>{
       console.log(this)
-    }
+    })()
+  }
 }
 
 a.get()  
