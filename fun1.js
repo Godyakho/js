@@ -33,6 +33,7 @@ Array.prototype.tar = function(){
 console.log(newarr.tar())
 
 var tar = newarr.tar()
+
 tar.sort(function(a, b){
     return a - b
 })
