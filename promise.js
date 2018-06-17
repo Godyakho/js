@@ -40,7 +40,7 @@ vPromise.prototype.then = function(fn) {
     this.callbacks.push(fn)
     return this
 }
-
+ 
 vPromise.prototype.resolve = function(data) {
     var fn = this.callbacks.shift()
     fn(data)    

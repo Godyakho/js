@@ -4,6 +4,7 @@ function quickSort(arr) {
     }
     var midIndex = Math.floor(arr.length / 2)
     var midValue = arr.splice(midIndex, 1)[0]
+    console.log(midIndex,midValue)
     var leftarr = []
     var rightarr = []
     for (var i = 0; i < arr.length; i++) {
@@ -13,9 +14,6 @@ function quickSort(arr) {
             rightarr.push(arr[i])
         }
     }
-    console.log('left:' + leftarr)
-    console.log('right:' + rightarr)
-
     return quickSort(leftarr).concat([midValue], quickSort(rightarr))
 }
 
