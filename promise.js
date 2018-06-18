@@ -10,9 +10,9 @@ var pro = new Promise(function(resolve,reject){
 })
 
 pro.then(function(data){
-    console.log(data)
+    console.log(1,data)
 },function(data){
-   console.log(data)
+   console.log(2,data)
 })
 
 function runAsync1(){
@@ -69,3 +69,4 @@ function getWeather(city){
       console.log(weather + ' 天气不错')
     }, 1000)
   }
+  

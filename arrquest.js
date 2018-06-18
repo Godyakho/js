@@ -57,3 +57,8 @@ console.log(sum)
 var initValues = [ 0, 10, 20]
 const initSum = initValues.reduce((a, b) => a+b, 0)
 console.log(initSum)
+
+
+var arr = []
+console.log(Object.prototype.toString.call(arr))
+console.log(arr instanceof Array);
