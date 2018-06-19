@@ -36,3 +36,14 @@ var fn4 = function(){
     // this为yh
 }.bind('yh')
 fn4()
+
+var a =1
+function main(){
+    alert(a)
+    var a = 4
+    alert(this.a)
+}
+
+new main()
+var p = main()
+p()

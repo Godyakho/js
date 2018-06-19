@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id='mylist'>
+        <li>1</li>
+        <li>2</li>
+        <li id="3" data-t="11">3</li>
+    </ul>
+</body>
+</html>
+<script>
+    // 高程设计 402
+    // e.target 指向触发事件监听的对象。
+    // e.currentTarget 指向添加监听事件的对象。
+
+    var list = document.getElementById('mylist')
+    // list.onclick = function() {
+    //     alert('123')
+    // }
+    var li = list.getElementsByTagName('li')
+    var len = li.length    
+
+    list.onclick = function(e){
+        var event = e || window.event
+        var target = e.target || e.srcEement
+        console.log(event,target.id)
+        // if(target.id === '3') {
+        //     alert(target.innerHTML)
+        // }
+        if(target.nodeName === "LI"){
+            var index;
+            for(var i = 0;i<len;i++){
+                li[i].index = i
+                li[i].style.background = '#fff'
+            }
+            target.style.background = 'red'
+            console.log(target.index)
+        }
+    }
+</script>
