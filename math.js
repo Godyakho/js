@@ -42,3 +42,9 @@ function num4(a,b) {
 }
 
 console.log(num4(1,4))
+
+
+var maxarr = [1,5,7,9,3,5,7,99]
+
+console.log(Math.max.apply(window,maxarr))
+console.log(Math.min.apply(window,maxarr))
