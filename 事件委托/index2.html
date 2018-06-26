@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="father">   
+        <div class="tar" data-value="1"> 
+            <a class="child">11111</a>
+        </div>
+        <div class="tar" data-value="2">
+            <a class="child">11111</a>
+        </div>
+        <div class="tar" data-value="3">
+            <a class="child">11111</a>
+        </div>
+        <div class="tar" data-value="4">
+            <a class="child">11111</a>
+        </div>
+    </div>
+</body>
+<script>
+    // var f = document.getElementsByClassName('father')[0]
+    // f.addEventListener('click',function(e){
+    //     var target = e.target
+    //     var name = target.nodeName
+    //     var value = target.dataset.value
+    //     if(name === 'DIV'){
+    //         console.log(value)
+    //     }
+    // })
+     var f = document.getElementsByClassName('father')[0]
+    f.addEventListener('click',function(e){
+        var target = e.target
+        var currentTarget = e.currentTarget;
+
+        console.log(target,currentTarget)
+        while (target !== currentTarget) {
+        if (target.matches('.tar')) {
+            var targets = target            
+            console.log(targets.getAttribute('data-value'))
+        }
+            target = target.parentNode;
+        }
+    })
+</script>
+</html>
