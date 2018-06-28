@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 50px;
+            height: 100px;
+            background: #000;
+            margin-top: 1000px
+        }   
+        body{
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <div id='div1'>
+    </div> 
+</body>
+<script>
+    window.onscroll = function() {
+        // scrollTop: 代表在有滚动条时，滚动条向下滚动的距离也就是元素顶部被遮住部分的高度。在没有滚动条时scrollTop==0恒成立。单位px，可读可设置
+        var st = document.documentElement.scrollTop || document.body.scrollTop
+        console.log('ScrollTop:'+st)
+
+        // clientHeight：包括padding但不包括border、水平滚动条、margin的元素的高度。对于inline的元素这个属性一直是0，单位px，只读
+        var ch = document.documentElement.clientHeight || document.body.clientHeight
+        console.log('clientHeight:'+ch)
+        
+        // offsetHeight：包括padding、border、水平滚动条，但不包括margin的元素的高度。对于inline的元素这个属性一直是0，单位px，只读
+        var osh = document.documentElement.offsetHeight || document.body.offsetHeight
+        console.log('offsetHeight:'+osh)
+
+        // offsetTop: 当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读
+        var ost = document.documentElement.offsetTop || document.body.offsetTop
+        console.log('offsetTop:'+ost)
+        
+        // scrollHeight: 因为子元素比父元素高，父元素不想被子元素撑的一样高就显示出了滚动条，在滚动的过程中本元素有部分被隐藏了，
+        // scrollHeight代表包括当前不可见部分的元素的高度。而可见部分的高度其实就是clientHeight，也就是scrollHeight>=clientHeight恒成立。
+        // 在有滚动条时讨论scrollHeight才有意义，在没有滚动条时scrollHeight==clientHeight恒成立。单位px，只读元素
+        var sh = document.documentElement.scrollHeight || document.body.scrollHeight
+        console.log('scrollHeight:'+sh)
+
+
+
+        // 判断div1 是否在可视区
+        var m = document.getElementById('div1')
+        // div身高度
+        var dch = m.clientHeight 
+        // div到顶部的高度
+        var dost = m.offsetTop
+        // window 滚动条高度
+        var wst = document.documentElement.scrollTop || document.body.scrollTop
+        // window 高度
+        var wch = document.documentElement.clientHeight || document.body.clientHeight
+
+        if(wch + wst  > dost && wst < dch+dost) {
+            console.log('show')
+        }   else {
+            console.log('hide')
+        }
+    }
+
+    
+    
+
+
+
+
+    
+</script>
+</html>
